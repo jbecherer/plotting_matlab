@@ -26,6 +26,9 @@ if size(x,2) == size(y,1)
 end
 
 ii = ~(isnan(x) | isnan(y));
-
-y1 = interp1( x(ii), y(ii), x1);
+if sum(ii) > 1
+    y1 = interp1( x(ii), y(ii), x1);
+else
+    y1 = nan(size(x1));
+end
 
