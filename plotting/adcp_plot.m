@@ -21,21 +21,21 @@ u = real(U);
 v = imag(U);
 
 xl = time([1 end]);
-yl = [min((min(z))) 0];
+yl = [min((min(z))) max( [max(max(z)), 0])];
 if sum(sum( real(U)<0 )) > 0 % symetric coloraxes 
-   sort_u  = sort( reshape(abs(u), Nu, 1)); 
-   maxreal = sort_u( floor(Nu/100*98) ); % 98 % max value
+   sort_u  = sort( abs(u(~isnan(u)))); 
+   maxreal = sort_u( floor( length(sort_u)/100*98) ); % 98 % max value
    if ~really
-      sort_v  = sort( reshape(abs(v), Nu, 1)); 
-      maximag = sort_v( floor(Nu/100*98) ); % 98 % max value
+      sort_v  = sort(abs(v(~isnan(v)))); 
+      maximag = sort_v( floor(length(sort_v)/100*98) ); % 98 % max value
       cl = [-1 1]* max([maxreal maximag]);
    else
       cl = [-1 1]* maxreal;
    end
    colmap = cmap.vel2;
 else     % strictly possitive axes
-   sort_u  = sort( reshape(abs(u), Nu, 1)); 
-   maxreal = sort_u( floor(Nu/100*98) ); % 98 % max value
+   sort_u  = sort( abs(u(~isnan(u)))); 
+   maxreal = sort_u( floor( length(sort_u)/100*98) ); % 98 % max value
    cl = [0 1]*maxreal;
    colmap = cmap.hblvil;
 end
