@@ -7,14 +7,21 @@ function [F_U, PS, p1] = plot_spec(ax, X, fs, varargin)
 
 
 if(nargin<4)
-   col   = [0 0 0];
-   nW    = 1;
+   col           = [0 0 0];
+   nW            = 1;
+   varpreserving = 0;
 elseif(nargin<5)
    col   = varargin{1};
    nW    = 1;
+   varpreserving = 0;
+elseif(nargin<6)
+   col   = varargin{1};
+   nW    = varargin{2};
+   varpreserving = 0; 
 else
    col   = varargin{1};
    nW    = varargin{2};
+   varpreserving = varargin{3};
 end
 
    % % set spectrum parameters
@@ -27,14 +34,35 @@ end
 
    [F_U , PS, ctop, cbot]  = iow_fancypsd( X, NFFTmax, Ffac, Fmin, fs, p, pPlot);
 
+   Nbin = 10;
+   cnt = 1;
+   while 1
+    l = 2^(cnt);
+    if (length(PS)>(l*Nbin+l))
+       PS((l*Nbin):end) = movmean(PS((l*Nbin):end),l);
+    else
+        break; 
+    end
+    cnt = cnt+1; 
+   end
    
    if( isreal(PS(1)) )
-      p1 = plot(ax, F_U, PS, 'color', col);
+     if varpreserving
+        p1 = plot(ax, F_U, PS.*F_U, 'color', col);
+     else
+        p1 = plot(ax, F_U, PS, 'color', col);
+     end
       hold(ax, 'on');
    else
-      p1 = plot(ax, F_U, real(PS), '--', 'color', col);
-      hold(ax, 'on');
-      p2 = plot(ax, F_U, imag(PS), 'color', col);
+      if varpreserving
+          p1 = plot(ax, F_U, real(PS).*F_U, '--', 'color', col);
+          hold(ax, 'on');
+          p2 = plot(ax, F_U, imag(PS).*F_U, 'color', col);
+      else
+          p1 = plot(ax, F_U, real(PS), '--', 'color', col);
+          hold(ax, 'on');
+          p2 = plot(ax, F_U, imag(PS), 'color', col);
+      end
       legend([p1, p2], 'anti-clockwise', 'clockwise' );
    end
 
