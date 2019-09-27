@@ -45,7 +45,7 @@ end
 
 % if no axes are given
 if nargin < 4
-    fig = figure('Color',[1 1 1],'visible','on','Paperunits','centimeters',...
+    fig = figure('Color',[1 1 1],'visible','off','Paperunits','centimeters',...
             'Papersize',[30 20],'PaperPosition',[0 0 30 20])
          if really
             [ax, ~] = create_axes(fig, 1, 1, 0);
