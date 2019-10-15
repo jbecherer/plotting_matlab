@@ -13,6 +13,18 @@ if strcmp(kind, '11s') %{{{
 
          %}}}
 
+elseif strcmp(kind, '14s') %{{{
+ fig = figure('Color',[1 1 1],'visible','visible','Paperunits','centimeters',... 
+         'Papersize',[42 12]*.8,'PaperPosition',[0 0 42 12]*.8);
+
+         [ax, ~] = create_axes(fig, 1, 4, 0);
+         squeeze_axes(ax, 1.1,.9);
+         shift_axes(ax, -.05,.05);
+
+         %}}}
+
+
+
 elseif strcmp(kind, '22snl') %{{{
 
     fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
@@ -50,6 +62,17 @@ elseif strcmp(kind, '23syl')  %{{{
                shift_axes(ax(5:6), .65, 0 );
                squeeze_axes(ax, 1, .9);
                shift_axes(ax, 0.01, +.05);
+         %}}}
+
+
+elseif strcmp(kind, '34s') %{{{
+ fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',... 
+         'Papersize',[42 30]*.8,'PaperPosition',[0 0 42 30]*.8);
+
+         [ax, ~] = create_axes(fig, 3, 4, 0);
+         %squeeze_axes(ax, .9,1);
+         shift_axes(ax, 0,0);
+
          %}}}
 
 elseif strcmp(kind, '71hnl') %{{{
