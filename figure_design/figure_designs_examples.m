@@ -3,9 +3,11 @@ visible = 'off';
 cnt = 1;
 
 kind{cnt} = '11s';   cnt = cnt+1;
+kind{cnt} = '14snl';   cnt = cnt+1;
 kind{cnt} = '22snl'; cnt = cnt+1;
 kind{cnt} = '22sxyl'; cnt = cnt+1;
 kind{cnt} = '23syl'; cnt = cnt+1;
+kind{cnt} = '34snl';   cnt = cnt+1;
 kind{cnt} = '71hnl'; cnt = cnt+1;
 
 

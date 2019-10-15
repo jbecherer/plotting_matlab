@@ -13,8 +13,8 @@ if strcmp(kind, '11s') %{{{
 
          %}}}
 
-elseif strcmp(kind, '14s') %{{{
- fig = figure('Color',[1 1 1],'visible','visible','Paperunits','centimeters',... 
+elseif strcmp(kind, '14snl') %{{{
+ fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',... 
          'Papersize',[42 12]*.8,'PaperPosition',[0 0 42 12]*.8);
 
          [ax, ~] = create_axes(fig, 1, 4, 0);
@@ -65,7 +65,7 @@ elseif strcmp(kind, '23syl')  %{{{
          %}}}
 
 
-elseif strcmp(kind, '34s') %{{{
+elseif strcmp(kind, '34snl') %{{{
  fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',... 
          'Papersize',[42 30]*.8,'PaperPosition',[0 0 42 30]*.8);
 
