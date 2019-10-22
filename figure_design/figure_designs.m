@@ -1,4 +1,19 @@
 function [fig, ax] = figure_designs( kind, visible)
+%  [fig, ax] = figure_designs( kind, visible)
+%     
+%     kind has following option:
+%        11s         :  (1)v x (1)h panels -  (s)quare shape
+%        14snl       :  (1)v x (4)h panels -  (s)quare shape -  (n)o separate (l)abels
+%        22snl       :  (2)v x (2)h panels -  (s)quare shape -  (n)o separate (l)abels
+%        22sxyl      :  (2)v x (2)h panels -  (s)quare shape -  (x) and (y) separate (l)abels
+%        23syl       :  (2)v x (3)h panels -  (s)quare shape -  (y) separate (l)abels
+%        34snl       :  (3)v x (4)h panels -  (s)quare shape -  (n)o separate (l)abels
+%        71snl       :  (7)v x (1)h panels -  (h)ori.  shape -  (n)o separate (l)abels
+%
+%
+%   created by: 
+%        Johannes Becherer
+%        Tue Oct 22 12:09:12 PDT 2019
 
 if nargin < 2
    visible = 'on';
@@ -22,8 +37,6 @@ elseif strcmp(kind, '14snl') %{{{
          shift_axes(ax, -.05,.05);
 
          %}}}
-
-
 
 elseif strcmp(kind, '22snl') %{{{
 
@@ -63,7 +76,6 @@ elseif strcmp(kind, '23syl')  %{{{
                squeeze_axes(ax, 1, .9);
                shift_axes(ax, 0.01, +.05);
          %}}}
-
 
 elseif strcmp(kind, '34snl') %{{{
  fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',... 
