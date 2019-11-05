@@ -8,10 +8,12 @@ function [fig, ax] = figure_designs( kind, visible)
 %        12syl       :  (1)v x (3)h panels -  (s)quare shape -  (y) separate (l)abels
 %        14snl       :  (1)v x (4)h panels -  (s)quare shape -  (n)o separate (l)abels
 %        21hnl       :  (2)v x (1)h panels -  (h)ori.  shape -  (n)o separate (l)abels
+%        21snl       :  (2)v x (1)h panels -  (s)quare shape -  (x) separate (l)abels
 %        22snl       :  (2)v x (2)h panels -  (s)quare shape -  (n)o separate (l)abels
 %        22sxyl      :  (2)v x (2)h panels -  (s)quare shape -  (x) and (y) separate (l)abels
 %        23syl       :  (2)v x (3)h panels -  (s)quare shape -  (y) separate (l)abels
-%        23sxyl       :  (2)v x (3)h panels -  (s)quare shape -  (y) and (x) separate (l)abels
+%        23sxyl      :  (2)v x (3)h panels -  (s)quare shape -  (y) and (x) separate (l)abels
+%        24sxyl      :  (2)v x (4)h panels -  (s)quare shape -  (y) and (x) separate (l)abels
 %        31hnl       :  (3)v x (1)h panels -  (h)ori.  shape -  (n)o separate (l)abels
 %        34snl       :  (3)v x (4)h panels -  (s)quare shape -  (n)o separate (l)abels
 %        41hnl       :  (4)v x (1)h panels -  (h)ori.  shape -  (n)o separate (l)abels
@@ -30,8 +32,8 @@ if strcmp(kind, '11s') %{{{
    fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
          'Papersize',[12 10]*.8,'PaperPosition',[0 0 12 10]*.8);
       [ax, ~] = create_axes(fig, 1, 1, 0);
-         squeeze_axes(ax, .95 ,.95 );
-         shift_axes(ax, 0, 0);
+         squeeze_axes(ax, .9 ,.9 );
+         shift_axes(ax, .05, .05);
 
          %}}}
 
@@ -70,6 +72,21 @@ elseif strcmp(kind, '13syl') %{{{
          
 
          %}}}
+
+elseif strcmp(kind, '21sxl') %{{{
+   fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
+         'Papersize',[11 20]*.8,'PaperPosition',[0 0 11 20]*.8);
+         for a=1:2
+            ax(a) = subplot( 2, 1, a);
+            hold(ax(a), 'on');
+         end
+         squeeze_axes(ax, .95 ,1 );
+         shift_axes(ax, 0.03, 0);
+
+         
+
+         %}}}
+
 elseif strcmp(kind, '21hnl') %{{{
    fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
          'Papersize',[30 20]*.8,'PaperPosition',[0 0 30 20]*.8);
@@ -140,6 +157,18 @@ elseif strcmp(kind, '23sxyl') %{{{
 
          %}}}
 
+elseif strcmp(kind, '24sxyl') %{{{
+   fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
+         'Papersize',[35 18]*1,'PaperPosition',[0 0 35 18]*1);
+         for a=1:8
+            ax(a) = subplot( 2, 4, a);
+            hold(ax(a), 'on');
+         end
+         squeeze_axes(ax, 1.15 ,1 );
+         shift_axes(ax, -.05, .00);
+
+         %}}}
+
 elseif strcmp(kind, '31hnl') %{{{
    fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
          'Papersize',[30 20]*.8,'PaperPosition',[0 0 30 20]*.8);
@@ -161,7 +190,7 @@ elseif strcmp(kind, '34snl') %{{{
 
 elseif strcmp(kind, '41hnl') %{{{
    fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
-         'Papersize',[30 30]*.8,'PaperPosition',[0 0 30 30]*.8);
+         'Papersize',[30 25]*.8,'PaperPosition',[0 0 30 26]*.8);
       [ax, ~] = create_axes(fig, 4, 1, 0);
          squeeze_axes(ax, .95 ,.95 );
          shift_axes(ax, 0, 0);
