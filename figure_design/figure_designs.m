@@ -17,6 +17,8 @@ function [fig, ax] = figure_designs( kind, visible)
 %        31hnl       :  (3)v x (1)h panels -  (h)ori.  shape -  (n)o separate (l)abels
 %        34snl       :  (3)v x (4)h panels -  (s)quare shape -  (n)o separate (l)abels
 %        41hnl       :  (4)v x (1)h panels -  (h)ori.  shape -  (n)o separate (l)abels
+%        51hnl       :  (5)v x (1)h panels -  (h)ori.  shape -  (n)o separate (l)abels
+%        61hnl       :  (6)v x (1)h panels -  (h)ori.  shape -  (n)o separate (l)abels
 %        71snl       :  (7)v x (1)h panels -  (h)ori.  shape -  (n)o separate (l)abels
 %
 %
@@ -192,6 +194,24 @@ elseif strcmp(kind, '41hnl') %{{{
    fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
          'Papersize',[30 25]*.8,'PaperPosition',[0 0 30 26]*.8);
       [ax, ~] = create_axes(fig, 4, 1, 0);
+         squeeze_axes(ax, .95 ,.95 );
+         shift_axes(ax, 0, 0);
+
+         %}}}
+
+elseif strcmp(kind, '51hnl') %{{{
+         'Papersize',[30 30]*.8,'PaperPosition',[0 0 30 30]*.8);
+   fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
+      [ax, ~] = create_axes(fig, 5 , 1, 0);
+         squeeze_axes(ax, .95 ,.95 );
+         shift_axes(ax, 0, 0);
+
+         %}}}
+
+elseif strcmp(kind, '61hnl') %{{{
+         'Papersize',[30 30]*.8,'PaperPosition',[0 0 30 30]*.8);
+   fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
+      [ax, ~] = create_axes(fig, 6 , 1, 0);
          squeeze_axes(ax, .95 ,.95 );
          shift_axes(ax, 0, 0);
 
