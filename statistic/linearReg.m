@@ -1,5 +1,5 @@
 function [lg, con_lg, r, con_r] = linearReg(x,y)
-%% [lg] = linearReg(x,y)
+%% [lg, con_lg, r, con_r] = linearReg(x,y)
 %
 %  This function calculates the coefficients of a simple inear regression 
 %  between signals x,y with
