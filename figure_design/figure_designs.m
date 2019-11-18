@@ -200,8 +200,8 @@ elseif strcmp(kind, '41hnl') %{{{
          %}}}
 
 elseif strcmp(kind, '51hnl') %{{{
-         'Papersize',[30 30]*.8,'PaperPosition',[0 0 30 30]*.8);
    fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
+         'Papersize',[30 30]*.8,'PaperPosition',[0 0 30 30]*.8);
       [ax, ~] = create_axes(fig, 5 , 1, 0);
          squeeze_axes(ax, .95 ,.95 );
          shift_axes(ax, 0, 0);
@@ -209,8 +209,8 @@ elseif strcmp(kind, '51hnl') %{{{
          %}}}
 
 elseif strcmp(kind, '61hnl') %{{{
-         'Papersize',[30 30]*.8,'PaperPosition',[0 0 30 30]*.8);
    fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
+         'Papersize',[30 30]*.8,'PaperPosition',[0 0 30 30]*.8);
       [ax, ~] = create_axes(fig, 6 , 1, 0);
          squeeze_axes(ax, .95 ,.95 );
          shift_axes(ax, 0, 0);
