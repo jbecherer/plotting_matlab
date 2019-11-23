@@ -3,6 +3,7 @@ function [fig, ax] = figure_designs( kind, visible)
 %     
 %     kind has following option:
 %        11s         :  (1)v x (1)h panels -  (s)quare shape
+%        11h         :  (1)v x (1)h panels -  (h)horizontal shape
 %        12hnl       :  (1)v x (2)h panels -  (s)quare shape -  (n)o separate (l)abels
 %        12syl       :  (1)v x (2)h panels -  (s)quare shape -  (y) separate (l)abels
 %        13syl       :  (1)v x (3)h panels -  (s)quare shape -  (y) separate (l)abels
@@ -37,6 +38,15 @@ end
 if strcmp(kind, '11s') % {{{
    fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
          'Papersize',[12 10]*.8,'PaperPosition',[0 0 12 10]*.8);
+      [ax, ~] = create_axes(fig, 1, 1, 0);
+         squeeze_axes(ax, .9 ,.9 );
+         shift_axes(ax, .06, .06);
+
+         %}}}
+
+elseif strcmp(kind, '11h') % {{{
+   fig = figure('Color',[1 1 1],'visible',visible,'Paperunits','centimeters',...
+         'Papersize',[22 10]*.8,'PaperPosition',[0 0 22 10]*.8);
       [ax, ~] = create_axes(fig, 1, 1, 0);
          squeeze_axes(ax, .9 ,.9 );
          shift_axes(ax, .06, .06);
